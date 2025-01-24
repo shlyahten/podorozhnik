@@ -1,97 +1,91 @@
-# Telegram Bot for Podorozhnik
+# Telegram Bot для Подорожник
 
-This repository contains a PHP-based Telegram bot designed to interact with the Podorozhnik transport card system. The bot allows users to manage their card data, view trip history, and track payments through simple Telegram commands.
+Этот репозиторий содержит Telegram-бота на PHP, разработанного для взаимодействия с системой транспортных карт Подорожник. Бот позволяет пользователям управлять данными карты, просматривать историю поездок и отслеживать платежи с помощью простых команд в Telegram.
 
-## Features
+## Возможности
 
-- **Login and Token Management:**
-  - Supports authentication using user-provided credentials (email and password).
-  - Saves and refreshes tokens for seamless user experience.
+- **Авторизация и управление токенами:**
 
-- **Trip and Payment History:**
-  - Fetches and displays trip history with detailed information (date, route, type, and cost).
-  - Retrieves payment history with details on amount, status, and remaining balance.
+  - Поддерживает авторизацию с использованием предоставленных пользователем учетных данных (email и пароль).
+  - Сохраняет и обновляет токены для удобства пользователей.
 
-- **Balance Calculation:**
-  - Calculates the current balance based on trip and payment data.
+- **История поездок и платежей:**
 
-## Requirements
+  - Получает и отображает историю поездок с подробной информацией (дата, маршрут, тип и стоимость).
+  - Получает историю платежей с деталями о сумме, статусе и остатке на счете.
 
-- PHP 7.4 or higher
-- Composer (for dependency management)
-- Telegram Bot API token
+- **Расчет баланса:**
 
-## Installation
+  - Рассчитывает текущий баланс на основе данных о поездках и платежах.
 
-1. Clone this repository:
+## Требования
+
+- PHP 7.4 или выше
+- Composer (для управления зависимостями)
+- Токен Telegram Bot API
+
+## Установка
+
+1. Клонируйте этот репозиторий:
+
    ```bash
    git clone https://github.com/shlyahten/podorozhnik.git
    cd podorozhnik
    ```
 
-2. Install dependencies:
+2. Установите зависимости:
+
    ```bash
    composer install
    ```
 
-3. Set up your environment:
-   - Create a `.env` file in the root directory.
-   - Add your Telegram bot token:
-     ```env
-     BOT_TOKEN=your_telegram_bot_token
-     ```
+3. Укажите токен вашего Telegram-бота:
 
-4. Set up a webhook for your Telegram bot:
-   ```bash
-   php setWebhook.php
+   ```php
+   $botToken = '<TELEGRAM BOT TOKEN>';
    ```
 
-5. Run the bot:
+4. Настройте вебхук для вашего Telegram-бота:
    ```bash
-   php bot.php
+   https://api.telegram.org/bot{bot_token}/setWebhook?url={url_to_main.php}
    ```
 
-## Commands
+## Команды
 
-### User Commands
+### Пользовательские команды
 
-- **Login:**
-  Send your credentials in the format `email:password` to authenticate.
+- **Авторизация:**
+  Отправьте свои учетные данные в формате `email:password` для входа в систему.
 
-- **Refresh Token:**
-  Use `/refresh` to refresh your token.
+- **Обновление токена:**
+  Используйте команду `/refresh` для обновления токена.
 
-- **Trip History:**
-  Use `/trips` to fetch and display your trip history.
+- **История поездок:**
+  Используйте команду `/trips` для получения и отображения истории поездок.
 
-- **Payment History:**
-  Use `/payments` to fetch and display your payment history.
+- **История платежей:**
+  Используйте команду `/payments` для получения и отображения истории платежей.
 
-- **Balance Calculation:**
-  Use `/calc` to calculate your current balance.
+- **Расчет баланса:**
+  Используйте команду `/calc` для расчета текущего баланса.
 
-### Developer Commands
+## Структура файлов
 
-- **Error Logs:**
-  Errors are logged to `error_log.txt` in the root directory for debugging purposes.
+- `main.php`: Основная логика бота.
 
-## File Structure
+- `db.txt`: Хранит токены пользователей для системы ВПБ.
 
-- `bot.php`: Main bot logic.
-- `setWebhook.php`: Script to set up the Telegram webhook.
-- `db.txt`: Stores user tokens for the VPB system.
-- `p_db.txt`: Stores user tokens for the Podorozhnik system.
-- `error_log.txt`: Error log file.
+- `p_db.txt`: Хранит токены пользователей для системы Подорожник.
 
-## Contributing
+## Участие в разработке
 
-Contributions are welcome! Please fork this repository and submit a pull request with your improvements.
+Мы приветствуем вклад в развитие проекта! Пожалуйста, форкните этот репозиторий и отправьте pull request с вашими улучшениями.
 
-## License
+## Лицензия
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+Этот проект распространяется по лицензии MIT. Подробности смотрите в файле LICENSE.
 
 ---
 
-For more information, contact the repository owner or create an issue in this repository.
+Для дополнительной информации свяжитесь с владельцем репозитория или создайте issue в этом репозитории.
 
