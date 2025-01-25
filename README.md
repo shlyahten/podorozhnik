@@ -25,8 +25,9 @@
 - PHP 7.4 или выше
 - Composer (для управления зависимостями)
 - Токен Telegram Bot API
+- Домен с SSL
 
-## Установка
+## Установка без docker
 
 1. Клонируйте этот репозиторий:
 
@@ -52,6 +53,56 @@
    https://api.telegram.org/bot{bot_token}/setWebhook?url={url_to_main.php}
    ```
 
+## Установка с docker
+
+1. Клонируйте этот репозиторий:
+
+   ```bash
+   git clone https://github.com/shlyahten/podorozhnik.git
+   cd podorozhnik/docker
+   ```
+
+1. Укажите токен вашего Telegram-бота в `docker-compose.yaml`:
+
+   ```yaml
+    services:
+        bot:
+            environment:
+              BOT_TOKEN: YUR_TOKEN
+            ports:
+              - "8069:80"
+   ```
+
+1. При необходимости измените порт в `docker-compose.yaml`:
+
+   ```yaml
+    services:
+        bot:
+            ports:
+              - "8069:80"
+   ```
+   
+1. Запустите контейнер:
+
+   ```bash
+   docker compose up -d --build
+   ```
+
+1. Настройте вебхук для вашего Telegram-бота:
+   ```bash
+   https://api.telegram.org/bot{bot_token}/setWebhook?url={url_with_port_to_main.php}
+   ```
+
+1. Для просмотра логов контейнера используйте команду:
+
+   ```bash
+   docker compose logs -f
+   ```
+   или
+    ```bash
+    docker logs -f podorozhnik_bot-bot-1 
+    ```
+   
 ## Команды
 
 ### Пользовательские команды
