@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 
 use Telegram\Bot\Api;
 
-$botToken = ''; // Telegram Bot Token
+$botToken = getenv('BOT_TOKEN'); // Telegram Bot Token
 $bot = new Api($botToken);
 date_default_timezone_set('Europe/Moscow');
 

@@ -1,0 +1,10 @@
+name: podorozhnik_bot
+services:
+  bot:
+    build:
+      dockerfile: docker/Dockerfile
+      context: ..
+    environment:
+      BOT_TOKEN: YUR_TOKEN
+    ports:
+      - "8069:80"
