@@ -45,7 +45,7 @@
 3. Укажите токен вашего Telegram-бота:
 
    ```php
-   $botToken = '<TELEGRAM BOT TOKEN>';
+   $botToken = '<TELEGRAM BOT TOKEN>'; // instead of getenv('BOT_TOKEN');
    ```
 
 4. Настройте вебхук для вашего Telegram-бота:
