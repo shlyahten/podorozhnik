@@ -68,7 +68,7 @@
     services:
         bot:
             environment:
-              BOT_TOKEN: YUR_TOKEN
+              BOT_TOKEN: <YOUR_TOKEN>
             ports:
               - "8069:80"
    ```
